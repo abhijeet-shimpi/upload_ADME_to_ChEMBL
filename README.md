@@ -50,3 +50,24 @@ It will also create schema and required tables in the db.
 It will then load ADME data into appropriate tables.
 
 
+**SQL to access data**
+
+below are few examples of sqls to access ADME data from ChEMBL DB after migrating the data
+
+* SELECT * FROM amdb.absorption WHERE srug_type = 'Caco2_Wang'
+* To access only training data: 
+  SELECT * FROM amdb.absorption WHERE srug_type = 'Caco2_Wang' 
+  and dataset_type = 'train'
+
+
+**Reasons and assumptions**
+* ML teams required data segregated into train, valid, test data. 
+* Used split data rather than raw data to identify type of datasets
+* build four separate tables for each classification of ADME types for easy access.
+
+**Preparation & Execution**
+--prep time : 1-2 hours
+--execution : 2-3hours
+* Analysed TDC data and its functions(pytdc).
+* Explored different libraries - psycopg2, SQLAlchemy
+* Explored Datagrid IDE for postgres
