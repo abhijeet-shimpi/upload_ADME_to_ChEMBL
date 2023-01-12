@@ -67,7 +67,7 @@ below are few examples of sqls to access ADME data from ChEMBL DB after migratin
 
 **Preparation & Execution**
 --prep time : 1-2 hours
---execution : 2-3hours
+--execution : 2-3 hours
 * Analysed TDC data and its functions(pytdc).
 * Explored different libraries - psycopg2, SQLAlchemy
 * Explored Datagrid IDE for postgres
