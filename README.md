@@ -6,7 +6,7 @@ App for ETL operations on TDC ADME data. ETL operations include
 * extracting ADME data from TDC, 
 * splitting data into test, train and validation sets.
 * creating pandas dataframe for the split data and adding few more meta data.
-* Loading this data to the ChEMBL database.
+* Loading the data to the ChEMBL database.
 
 
 **Pre-requisites:**
@@ -48,4 +48,5 @@ python app.py
 This will extract all the ADME data and perform transformations. 
 It will also create schema and required tables in the db.
 It will then load ADME data into appropriate tables.
+
 
