@@ -10,7 +10,6 @@ DEFAULT_DATATYPES = dict(
     datetime = 'timestamp',
     bool = 'boolean',
     float = 'float'
-
 )
 
 class Pgsql:
@@ -21,7 +20,6 @@ class Pgsql:
         self.adme_type = config.get('adme_type')
         self.model = config.get('model')
         self.table_name = self.model.table_name.get(self.adme_type)
-        self.col_types: dict() = None
         self.text_column = None
         self.col_names = self.model_columns()
         self.create_schema_if_not_exist()
@@ -53,12 +51,10 @@ class Pgsql:
         #resolving dataclass fields into different formats
         self.col_names = list(self.model.__dataclass_fields__.keys())
 
-        self.col_types = dict()
         text_cols = list()
         for col in self.col_names:
             fields_type = self.model.__dataclass_fields__[col].type.__name__
             fields_type = DEFAULT_DATATYPES[fields_type]
-            self.col_types[col] = fields_type
             text_cols.append(f'{col} {fields_type}')
         self.text_column = ','.join(text_cols)
         return self.col_names
@@ -94,6 +90,3 @@ class Pgsql:
         cols = [col_def[0] for col_def in self.cursor.description]
         rows = self.cursor.fetchall()
         return cols, rows
-
-
-

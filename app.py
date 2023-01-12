@@ -1,10 +1,12 @@
 from tdc.single_pred import ADME
+import pandas as pd
+from datetime import datetime
+
 import utils
 import metadata
 from postgres_connect import Pgsql
 import model
-import pandas as pd
-from datetime import datetime
+
 
 class ETL:
     '''
@@ -12,7 +14,7 @@ class ETL:
     '''
     def __init__(self, name, adme_type):
         '''
-        init function to initialise clase parameters
+        init function to initialise class parameters
         :arg
             :param name: drug type
             :param adme_type: ADME type (Abosoption, Distribution, Metabolism and Excretion
@@ -81,7 +83,7 @@ class ETL:
 if __name__  == "__main__":
 
     '''
-    Functions gets ADME list from metadata.py file
+    Get ADME list from metadata.py file
     Iterate on the above list and perform ETL operations    
     '''
 
